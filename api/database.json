@@ -1,0 +1,22 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "name": "Moonstruck",
+      "year": "1987",
+      "director": "Norman Jewison",
+      "watchedWith": "Lauren",
+      "dateWatched": "January 8, 2017",
+      "review": "Loved it!"
+    },
+    {
+      "id": 1,
+      "name": "The Godfather",
+      "year": "1972",
+      "director": "Francis Ford Coppola",
+      "watchedWith": "Myself",
+      "dateWatched": "July 10, 2019",
+      "review": "Pretty mediocre tbh"
+    }
+  ]
+}
