@@ -1,7 +1,10 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { MovieList } from "./movie/MovieList"
+import { MyMovieList } from "./movie/MyMovieList"
 import { MovieProvider } from "./movie/MovieProvider"
+import { MovieSearch } from "./movie/MovieSearch"
+import { SearchMovieList } from "./movie/SearchMovieList"
+ 
 // import { MovieDetail } from "./movie/MovieDetail.js"
 
 export const ApplicationViews = () => {
@@ -14,16 +17,20 @@ export const ApplicationViews = () => {
             </LocationProvider> */}
                 
             <MovieProvider>
+                <Route exact path="/">
+		            <MovieSearch />
+                    <SearchMovieList />
+	            </Route>
                 <Route exact path="/movies">
-		            <MovieList />
+		            <MyMovieList />
 	            </Route>
                 
                 {/* <Route exact path="/movies/detail/:movieId(\d+)">
 		            <MovieDetail />
 	            </Route> */}
 
-                {/* <Route exact path="/animals/create">
-                    <AnimalForm />
+                {/* <Route exact path="/movies/add">
+                    <MovieForm />
                 </Route> */}
             </MovieProvider>
 

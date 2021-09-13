@@ -4,7 +4,7 @@ import "./Movie.css"
 import { useParams, useHistory } from "react-router-dom"
 
 export const MovieDetail = (props) => {
-    const { movies, releaseAnimal  } = useContext(MovieContext)
+    const { myMovies, releaseAnimal  } = useContext(MovieContext)
     const [ animal, setAnimal ] = useState({ location: {}, customer: {} })
 
     const { animalId } = useParams();

@@ -4,12 +4,12 @@ import { MovieContext } from "./MovieProvider"
 import "./Movie.css"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 
-export const MovieList = () => {
-    const { getMovies, movies } = useContext(MovieContext)
+export const MyMovieList = () => {
+    const { getMyMovies, myMovies } = useContext(MovieContext)
     const history = useHistory()
 
     useEffect(()=>{
-        getMovies()
+        getMyMovies()
     }, [])
 
     return (
@@ -22,7 +22,7 @@ export const MovieList = () => {
 
             <div className="animals">
                 {
-                    movies.map(movie => <Link to={`/animals/detail/${movie.id}`}>
+                    myMovies.map(movie => <Link to={`/movies/detail/${movie.id}`}>
                           { movie.name }
                         </Link>
                     )

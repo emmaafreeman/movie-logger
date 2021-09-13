@@ -1,26 +1,15 @@
 import React, { useContext, useEffect, useState } from "react"
-import { LocationContext } from "../location/LocationProvider.js"
-import { AnimalContext } from "../animal/AnimalProvider.js"
-import { CustomerContext } from "../customer/CustomerProvider.js"
-import "./Animal.css"
+import { MovieContext } from "./MovieProvider.js"
+// import "./Animal.css"
 import { useHistory } from 'react-router-dom';
 
-export const AnimalForm = () => {
-  const { addAnimal } = useContext(AnimalContext)
-  const { locations, getLocations } = useContext(LocationContext)
-  const { customers, getCustomers } = useContext(CustomerContext)
+export const MovieForm = () => {
+  const { myMovies, addmyMovies, apiMovies, getApiMovies } = useContext(MovieContext)
 
-  /*
-  With React, we do not target the DOM with `document.querySelector()`. Instead, our return (render) reacts to state or props.
-
-  Define the intial state of the form inputs with useState()
-  */
-
-  const [animal, setAnimal] = useState({
-    name: "",
-    breed: "",
-    locationId: 0,
-    customerId: 0
+  const [myMovies, setMyMovie] = useState({
+    dateWatched: "",
+    watchedWith: "",
+    review: ""
   });
 
   const history = useHistory();
@@ -38,16 +27,16 @@ export const AnimalForm = () => {
   const handleControlledInputChange = (event) => {
     /* When changing a state object or array,
     always create a copy, make changes, and then set state.*/
-    const newAnimal = { ...animal }
+    const newMovie = { ...movie }
     /* Animal is an object with properties.
     Set the property to the new value
     using object bracket notation. */
-    newAnimal[event.target.id] = event.target.value
+    newMovie[event.target.id] = event.target.value
     // update state
-    setAnimal(newAnimal)
+    setMyMovie(newMovie)
   }
 
-  const handleClickSaveAnimal = (event) => {
+  const handleClickSaveMovie = (event) => {
     event.preventDefault() //Prevents the browser from submitting the form
 
     const locationId = parseInt(animal.locationId)

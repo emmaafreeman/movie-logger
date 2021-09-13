@@ -4,9 +4,17 @@ import { BrowserRouter as Router } from "react-router-dom"
 import './index.css';
 import { Movie } from './components/Movie.js';
 import reportWebVitals from './reportWebVitals';
+import firebase from "firebase/compat/app";
+import { firebaseConfig } from "./apiKeys";
+import { googleAuth } from "./auth/googleAuth.js"
+// import { CheckAuth } from "./auth/checkAuth.js"
+
+firebase.initializeApp(firebaseConfig);
+
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <CheckAuth /> */}
     <Router>
       <Movie />
     </Router>
