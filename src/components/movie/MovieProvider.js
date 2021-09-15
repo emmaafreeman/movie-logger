@@ -1,4 +1,5 @@
 import React, { useState, createContext } from "react"
+import { tmdbKey } from "../../apiKeys"
 
 export const MovieContext = createContext()
 
@@ -6,6 +7,7 @@ export const MovieProvider = (props) => {
     const [myMovies, setMyMovies] = useState([])
     const [apiMovies, setApiMovies] = useState([])
     const [ searchTerms, setSearchTerms ] = useState("")
+    const [ filteredMovies, setFiltered ] = useState([""])
 
     const getMyMovies = () => {
         return fetch("http://localhost:8088/movies")
@@ -14,9 +16,9 @@ export const MovieProvider = (props) => {
     }
 
     const getApiMovies = () => {
-        return fetch("https://api.themoviedb.org/3/movie/550?api_key=49f0891e83751371d34969a6a338d419")
+        return fetch(`https://api.themoviedb.org/3/search/movie?${tmdbKey}&query=${searchTerms}`)
         .then(res => res.json())
-        .then(setApiMovies)
+        .then(data => setApiMovies(data.results))
     }
 
     const addMyMovie = movieObj => {
@@ -32,7 +34,7 @@ export const MovieProvider = (props) => {
 
     return (
         <MovieContext.Provider value={{
-            myMovies, getMyMovies, addMyMovie, getApiMovies, apiMovies, searchTerms, setSearchTerms
+            myMovies, getMyMovies, addMyMovie, getApiMovies, apiMovies, searchTerms, setSearchTerms, filteredMovies, setFiltered
         }}>
             {props.children}
         </MovieContext.Provider>

@@ -1,15 +1,33 @@
-import React, { useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { MovieContext } from "./MovieProvider"
-
+import { SearchMovieList } from "./SearchMovieList"
 
 export const MovieSearch = () => {
-  const { setSearchTerms } = useContext(MovieContext)
+  const { getApiMovies, apiMovies, searchTerms, setSearchTerms, setFiltered } = useContext(MovieContext)
+
+  // useEffect(()=>{
+  //   getApiMovies()
+  // }, [])
+
+  // useEffect(() => {
+  //   if (searchTerms === apiMovies.original_title) {
+  //     const subset = apiMovies.filter(movie => movie.original_title.toLowerCase().includes(searchTerms))
+  //     setFiltered(subset)
+  //   }
+  // }, [searchTerms, apiMovies])
+
+  const searchResults = (event) => {
+    event.preventDefault()
+    setSearchTerms(event.target.value)
+    getApiMovies()
+  }
 
   return (
     <>
-      <input type="text" 
-        onKeyUp={(event) => setSearchTerms(event.target.value)}
-        placeholder="Movie Search" />
+      <form onSubmit={searchResults}>
+        <input type="text" placeholder="Movie Search" />
+        <input type="submit" />
+      </form>
     </>
   )
 }

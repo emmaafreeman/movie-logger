@@ -19,7 +19,7 @@ export const ApplicationViews = () => {
             <MovieProvider>
                 <Route exact path="/">
 		            <MovieSearch />
-                    <SearchMovieList />
+                    {/* <SearchMovieList /> */}
 	            </Route>
                 <Route exact path="/movies">
 		            <MyMovieList />
