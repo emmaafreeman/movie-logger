@@ -1,25 +1,17 @@
 import React, { useState, useContext, useEffect } from "react"
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import { MovieContext } from "./MovieProvider"
 import { SearchMovieList } from "./SearchMovieList"
 
 export const MovieSearch = () => {
-  const { getApiMovies, apiMovies, searchTerms, setSearchTerms, setFiltered } = useContext(MovieContext)
-
-  // useEffect(()=>{
-  //   getApiMovies()
-  // }, [])
-
-  // useEffect(() => {
-  //   if (searchTerms === apiMovies.original_title) {
-  //     const subset = apiMovies.filter(movie => movie.original_title.toLowerCase().includes(searchTerms))
-  //     setFiltered(subset)
-  //   }
-  // }, [searchTerms, apiMovies])
+  const { getApiMovies, apiMovies, searchTerms, filteredMovies, setSearchTerms, setFiltered } = useContext(MovieContext)
+  const history = useHistory()
 
   const searchResults = (event) => {
     event.preventDefault()
-    setSearchTerms(event.target.value)
-    getApiMovies()
+    setSearchTerms(event.target.value).then(getApiMovies(searchTerms))
+    // const subset = apiMovies.filter(movie => movie.original_title.toLowerCase().includes(searchTerms))
+    // setFiltered(subset)
   }
 
   return (
@@ -28,6 +20,18 @@ export const MovieSearch = () => {
         <input type="text" placeholder="Movie Search" />
         <input type="submit" />
       </form>
+      <div className="animals">
+        {
+          apiMovies.map(movie =>
+            <div>
+              { movie.original_title }
+              <button onClick={() => history.push("/movies/add")}>
+                Add New Movie
+              </button>
+            </div>
+            )
+        }
+        </div>
     </>
   )
 }

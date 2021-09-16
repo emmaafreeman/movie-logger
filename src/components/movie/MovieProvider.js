@@ -15,8 +15,8 @@ export const MovieProvider = (props) => {
         .then(setMyMovies)
     }
 
-    const getApiMovies = () => {
-        return fetch(`https://api.themoviedb.org/3/search/movie?${tmdbKey}&query=${searchTerms}`)
+    const getApiMovies = (query) => {
+        return fetch(`https://api.themoviedb.org/3/search/movie?${tmdbKey}&query=${query}`)
         .then(res => res.json())
         .then(data => setApiMovies(data.results))
     }
