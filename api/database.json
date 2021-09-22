@@ -1,22 +1,54 @@
 {
   "movies": [
     {
-      "id": 1,
-      "name": "Moonstruck",
-      "year": "1987",
-      "director": "Norman Jewison",
-      "watchedWith": "Lauren",
-      "dateWatched": "January 8, 2017",
-      "review": "Loved it!"
+      "title": "Mamma Mia!",
+      "language": "en",
+      "releaseDate": "2008-07-02",
+      "director": "",
+      "dateWatched": "2021-03-08",
+      "watchedWith": "Madeline",
+      "review": "I loved it!",
+      "id": 1
     },
     {
-      "id": 1,
-      "name": "The Godfather",
-      "year": "1972",
-      "director": "Francis Ford Coppola",
-      "watchedWith": "Myself",
-      "dateWatched": "July 10, 2019",
-      "review": "Pretty mediocre tbh"
+      "title": "Inception",
+      "language": "en",
+      "releaseDate": "2010-07-15",
+      "director": "",
+      "dateWatched": "2010-09-02",
+      "watchedWith": "Mom",
+      "review": "So good!",
+      "id": 2
+    },
+    {
+      "title": "The Godfather",
+      "language": "en",
+      "releaseDate": "1972-03-14",
+      "director": "",
+      "dateWatched": "2020-06-04",
+      "watchedWith": "Just me",
+      "review": "Meh",
+      "id": 3
+    },
+    {
+      "title": "Moonstruck",
+      "language": "en",
+      "releaseDate": "1987-12-16",
+      "director": "",
+      "dateWatched": "2017-08-27",
+      "watchedWith": "Julia",
+      "review": "One of my favorites!",
+      "id": 4
+    },
+    {
+      "title": "Black Widow",
+      "language": "en",
+      "releaseDate": "2021-07-07",
+      "director": "",
+      "dateWatched": "2021-07-09",
+      "watchedWith": "Andy, Emilia",
+      "review": "Not impressed",
+      "id": 5
     }
   ]
 }

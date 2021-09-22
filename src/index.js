@@ -8,6 +8,7 @@ import firebase from "firebase/compat/app";
 import { firebaseConfig } from "./apiKeys";
 import { googleAuth } from "./auth/googleAuth.js"
 // import { CheckAuth } from "./auth/checkAuth.js"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 firebase.initializeApp(firebaseConfig);
 

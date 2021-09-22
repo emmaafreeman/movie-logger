@@ -3,51 +3,34 @@ import { Route } from "react-router-dom"
 import { MyMovieList } from "./movie/MyMovieList"
 import { MovieProvider } from "./movie/MovieProvider"
 import { MovieSearch } from "./movie/MovieSearch"
-import { SearchMovieList } from "./movie/SearchMovieList"
- 
-// import { MovieDetail } from "./movie/MovieDetail.js"
+import { AddMovieForm } from "./movie/AddMovieForm"
+import { MovieDetail } from "./movie/MovieDetail"
+import { EditMovieForm } from "./movie/EditMovieForm"
+
 
 export const ApplicationViews = () => {
     return (
-        <>
-            {/* <LocationProvider>
-                <Route exact path="/locations">
-                    <LocationList />
-                </Route>
-            </LocationProvider> */}
-                
+        <>  
             <MovieProvider>
                 <Route exact path="/">
 		            <MovieSearch />
-                    {/* <SearchMovieList /> */}
 	            </Route>
                 <Route exact path="/movies">
 		            <MyMovieList />
 	            </Route>
                 
-                {/* <Route exact path="/movies/detail/:movieId(\d+)">
+                <Route exact path="/movies/detail/:myMovieId">
 		            <MovieDetail />
-	            </Route> */}
+	            </Route>
 
-                {/* <Route exact path="/movies/add">
-                    <MovieForm />
-                </Route> */}
+                <Route path="/movies/edit/:myMovieId">
+                    <EditMovieForm />
+                </Route>
+
+                <Route path="/movies/add/:movieId">
+                    <AddMovieForm />
+                </Route>
             </MovieProvider>
-
-            {/* <CustomerProvider>
-                <Route path="/customers">
-                    <CustomerList />
-                </Route>
-            </CustomerProvider>
-
-            <EmployeeProvider>
-                <Route path="/employees">
-                    <EmployeeList />
-                </Route>
-                <Route exact path="/employees/create">
-                    <EmployeeForm />
-                </Route>
-            </EmployeeProvider> */}
         </>
     )
 }

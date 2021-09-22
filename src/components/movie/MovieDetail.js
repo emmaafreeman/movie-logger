@@ -4,37 +4,48 @@ import "./Movie.css"
 import { useParams, useHistory } from "react-router-dom"
 
 export const MovieDetail = (props) => {
-    const { myMovies, releaseAnimal  } = useContext(MovieContext)
-    const [ animal, setAnimal ] = useState({ location: {}, customer: {} })
-
-    const { animalId } = useParams();
+    const { myMovies, getMyMovies, deleteMyMovie, editMyMovie, getMyMovieById } = useContext(MovieContext)
+    const [ movie, setMovie ] = useState({})
+    const { myMovieId } = useParams();
     const history = useHistory()
-    useEffect(() => {
-        const thisAnimal = animals.find(a => a.id === parseInt(animalId)) || { location: {}, customer: {} }
-        setAnimal(thisAnimal)
-    }, [animalId])
+    
 
-    const handleRelease = () => {
-      releaseAnimal(props.animal.id)
+    useEffect(() => {
+      getMyMovies()
+      const thisMovie = myMovies.find(m => m.id === parseInt(myMovieId))
+      setMovie(thisMovie)
+  }, [myMovieId])
+
+    const deleteMovie = () => {
+      deleteMyMovie(movie)
         .then(() => {
-          history.push("/animals")
+          history.push("/movies")
         })
     }
 
+    const editMovie = (event) => {
+      getMyMovieById(movie).then(() => {
+      history.push(`/movies/edit/${event.target.id}`)
+    })}
+
     return (
     <>
-      <button onClick={handleRelease}>
-          Release HAPPY Animal
-      </button>
-      <button onClick={() => {
-        history.push(`/animals/edit/${props.animal.id}`)
-      }}>Edit</button>
-      <section className="animal">
-        <h3 className="animal__name">{ props.animal.name }</h3>
-        <div className="animal__breed">{ props.animal.breed }</div>
-        <div className="animal__location">Location: { props.animal.location.name }</div>
-        <div className="animal__owner">Customer: { props.animal.customer.name }</div>
+      <section>
+        <h3>{ movie.title }</h3>
+        <div>
+          <div>{ movie.language }</div>
+          <div>{ movie.releaseDate }</div>
+          <div>{ movie.dateWatched }</div>
+          <div>{ movie.watchedWith }</div>
+          <div>{ movie.review }</div>
+        </div>
       </section>
+      <button onClick={deleteMovie}>
+          Delete
+      </button>
+      <button id={movie.id} onClick={editMovie}>
+        Edit
+      </button>
     </>
   )
 }

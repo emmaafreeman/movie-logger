@@ -2,11 +2,12 @@ import React, { useState, useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { MovieContext } from "./MovieProvider"
 import "./Movie.css"
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min"
 
 export const MyMovieList = () => {
     const { getMyMovies, myMovies } = useContext(MovieContext)
     const history = useHistory()
+    const myMovieId = useParams()
 
     useEffect(()=>{
         getMyMovies()
@@ -15,15 +16,10 @@ export const MyMovieList = () => {
     return (
         <>
             <h1>Movies</h1>
-
-            {/* <button onClick={() => history.push("/animals")}>
-                Make Reservation
-            </button> */}
-
-            <div className="animals">
+            <div>
                 {
                     myMovies.map(movie => <Link to={`/movies/detail/${movie.id}`}>
-                          { movie.name }
+                          { movie.title }
                         </Link>
                     )
                 }
