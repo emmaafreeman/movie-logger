@@ -1,0 +1,43 @@
+.body {
+  color: black;
+}
+
+.search {
+  margin: 5rem 5rem 1rem 5rem;
+}
+
+.search_button{
+  margin: 1rem 1rem 1rem 0rem;
+  justify-content: center;
+}
+
+.movie_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie_card {
+  margin: 10px;
+}
+
+.form_title {
+  padding: 1rem 1rem 1rem 0rem ;
+}
+
+.form_button {
+  margin: 1rem;
+}
+
+.page-title {
+  margin: 1rem 0rem 1rem 2rem;
+}
+
+.detail {
+  display: flex;
+  padding: 1rem;
+}
+
+.detail_card {
+  align-items: center;
+}

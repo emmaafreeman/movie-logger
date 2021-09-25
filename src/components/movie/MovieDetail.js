@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react"
 import { MovieContext } from "./MovieProvider"
 import "./Movie.css"
 import { useParams, useHistory } from "react-router-dom"
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 export const MovieDetail = (props) => {
     const { myMovies, getMyMovies, deleteMyMovie, editMyMovie, getMyMovieById } = useContext(MovieContext)
@@ -30,22 +32,21 @@ export const MovieDetail = (props) => {
 
     return (
     <>
-      <section>
-        <h3>{ movie.title }</h3>
-        <div>
-          <div>{ movie.language }</div>
-          <div>{ movie.releaseDate }</div>
-          <div>{ movie.dateWatched }</div>
-          <div>{ movie.watchedWith }</div>
-          <div>{ movie.review }</div>
-        </div>
-      </section>
-      <button onClick={deleteMovie}>
-          Delete
-      </button>
-      <button id={movie.id} onClick={editMovie}>
-        Edit
-      </button>
+      <div className="detail">
+        <Card className="detail_card" style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={ `https://image.tmdb.org/t/p/w500/${movie.poster}`} />
+          <Card.Body>
+            <Card.Title>{movie.title}</Card.Title>
+              <p>{ movie.language }</p>
+              <p>{ movie.releaseDate }</p>
+              <p>{ movie.dateWatched }</p>
+              <p>{ movie.watchedWith }</p>
+              <p>{ movie.review }</p>
+              <Button  onClick={deleteMovie} variant="dark">Delete Movie</Button>
+              <Button  className="form_button" id={movie.id} onClick={editMovie} variant="dark">Edit Movie</Button>
+          </Card.Body>
+        </Card>
+      </div>
     </>
   )
 }

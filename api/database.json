@@ -1,54 +1,58 @@
 {
   "movies": [
     {
-      "title": "Mamma Mia!",
-      "language": "en",
-      "releaseDate": "2008-07-02",
-      "director": "",
-      "dateWatched": "2021-03-08",
-      "watchedWith": "Madeline",
-      "review": "I loved it!",
-      "id": 1
-    },
-    {
-      "title": "Inception",
-      "language": "en",
-      "releaseDate": "2010-07-15",
-      "director": "",
-      "dateWatched": "2010-09-02",
-      "watchedWith": "Mom",
-      "review": "So good!",
-      "id": 2
-    },
-    {
-      "title": "The Godfather",
-      "language": "en",
-      "releaseDate": "1972-03-14",
-      "director": "",
-      "dateWatched": "2020-06-04",
-      "watchedWith": "Just me",
-      "review": "Meh",
-      "id": 3
-    },
-    {
+      "id": 6,
       "title": "Moonstruck",
       "language": "en",
       "releaseDate": "1987-12-16",
-      "director": "",
+      "poster": "/hH5mm3A5r1Bw8uBAJXbAtJxBpPB.jpg",
       "dateWatched": "2017-08-27",
       "watchedWith": "Julia",
-      "review": "One of my favorites!",
-      "id": 4
+      "review": "One of my favorites!"
+    },
+    {
+      "title": "Mamma Mia!",
+      "language": "en",
+      "releaseDate": "2008-07-02",
+      "poster": "/zdUA4FNHbXPadzVOJiU0Rgn6cHR.jpg",
+      "director": "",
+      "dateWatched": "2010-09-02",
+      "watchedWith": "Madeline",
+      "review": "I loved it!",
+      "id": 7
     },
     {
       "title": "Black Widow",
       "language": "en",
       "releaseDate": "2021-07-07",
+      "poster": "/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg",
       "director": "",
       "dateWatched": "2021-07-09",
       "watchedWith": "Andy, Emilia",
       "review": "Not impressed",
-      "id": 5
+      "id": 8
+    },
+    {
+      "title": "The Godfather",
+      "language": "en",
+      "releaseDate": "1972-03-14",
+      "poster": "/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+      "director": "",
+      "dateWatched": "2020-06-04",
+      "watchedWith": "Myself",
+      "review": "Meh",
+      "id": 9
+    },
+    {
+      "title": "Inception",
+      "language": "en",
+      "releaseDate": "2010-07-15",
+      "poster": "/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
+      "director": "",
+      "dateWatched": "2010-09-02",
+      "watchedWith": "Mom",
+      "review": "I loved it!",
+      "id": 10
     }
   ]
 }
