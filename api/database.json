@@ -53,6 +53,17 @@
       "watchedWith": "Mom",
       "review": "I loved it!",
       "id": 10
+    },
+    {
+      "title": "10 Things I Hate About You",
+      "language": "en",
+      "releaseDate": "1999-03-30",
+      "poster": "/ujERk3aKABXU3NDXOAxEQYTHe9A.jpg",
+      "director": "",
+      "dateWatched": "2021-10-04",
+      "watchedWith": "Madeline",
+      "review": "I love this movie!",
+      "id": 11
     }
   ]
 }

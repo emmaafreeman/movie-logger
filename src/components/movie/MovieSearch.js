@@ -1,16 +1,17 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import { MovieContext } from "./MovieProvider"
+import "./Movie.css"
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from "react-bootstrap/Container";
 import Card from 'react-bootstrap/Card';
-import "./Movie.css"
 
 export const MovieSearch = () => {
   const { getApiMovies, apiMovies, getApiMovieById} = useContext(MovieContext)
   const history = useHistory()
 
+  // Establishes search results as value of search bar and prevents user from entering blank search
   const searchResults = (event) => {
     event.preventDefault()
     if (event.target[0].value !== "") {
@@ -20,6 +21,7 @@ export const MovieSearch = () => {
     }
   }
 
+  // Gets specific movie from TMDb API by id and changes page to Add Movie Form
   const addMovie = (event) => {
     getApiMovieById(parseInt(event.target.id)).then(() => {
     history.push(`/movies/add/${event.target.id}`)
@@ -27,8 +29,9 @@ export const MovieSearch = () => {
 
   return (
     <>
-      <Container className="search">
-        <Form className="search_form" onSubmit={searchResults}>
+      <Container className="text-center">
+        <h1 className="page_title">Movie Logger</h1>
+        <Form className="search_form text-center" onSubmit={searchResults}>
           <Form.Group className="mb-3">
             <Form.Control type="text" placeholder="Movie Search" />
           </Form.Group>
@@ -42,7 +45,7 @@ export const MovieSearch = () => {
           apiMovies.map(apiMovie =>
             <Card className="search_card" style={{ width: '18rem' }}>
               <Card.Img variant="top" src={ `https://image.tmdb.org/t/p/original/${apiMovie.poster_path}`}/>
-              <Card.Body>
+              <Card.Body className="text-center">
                 <Card.Title>{apiMovie.original_title}</Card.Title>
                 <Button id={apiMovie.id} onClick={addMovie} variant="dark">Add New Movie</Button>
               </Card.Body>
@@ -53,20 +56,3 @@ export const MovieSearch = () => {
     </>
   )
 }
-
-{/* <Form onSubmit={searchResults}>
-  <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Control type="text" placeholder="Movie Search" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form> */}
-
-{/* <Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
-  <Card.Body>
-    <Card.Title>{apiMovie.original_title}</Card.Title>
-    <Button id={apiMovie.id} onClick={addMovie} variant="primary">Add New Movie</Button>
-  </Card.Body>
-</Card> */}
