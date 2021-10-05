@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useState } from "react"
+import { useHistory, useParams } from 'react-router-dom';
 import { MovieContext } from "./MovieProvider.js"
 import "./Movie.css"
-import { useHistory, useParams } from 'react-router-dom';
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 export const EditMovieForm = () => {
-  const { myMovies, addMyMovie, apiMovies, getApiMovies, getApiMovieById, apiMovieById, setApiMovieById, editMyMovie, getMyMovieById, myMovieById, setMyMovieById} = useContext(MovieContext)
+  const { editMyMovie, myMovieById } = useContext(MovieContext)
   const history = useHistory();
-  const {movieId} = useParams();
 
+  // Create new object for form to update and add to local database file
   const [movieToEdit, setMovieToEdit] = useState({
     id: myMovieById.id,
     title: myMovieById.title,
@@ -22,12 +22,14 @@ export const EditMovieForm = () => {
     review: myMovieById.review
   });
 
+  // Update movieToEdit object with values entered into form inputs
   const handleControlledInputChange = (event) => {
     const newMovieToEdit = { ...movieToEdit }
     newMovieToEdit[event.target.id] = event.target.value
     setMovieToEdit(newMovieToEdit)
   }
 
+  // Edit movie object in local database file, then change page to Movie Detail page
   const handleClickEditMovie = (event) => {
     event.preventDefault()
     const myMovie = movieToEdit
@@ -36,8 +38,8 @@ export const EditMovieForm = () => {
 
   return (
     <Container>
-      <Form>
-        <h2 className="form_title"> Add New Movie </h2>
+      <Form className="text-center">
+        <h2 className="page_title"> Edit Movie </h2>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control type="text" id="title" placeholder="Title" value={movieToEdit.title} onChange={handleControlledInputChange} />
@@ -70,46 +72,6 @@ export const EditMovieForm = () => {
         </Button>
       </Form>
     </Container>
-
-    // <form>
-    //   <h2>Edit Movie</h2>
-    //   <fieldset>
-    //     <div>
-    //       <input type="text" id="title" placeholder="Title" value={movieToEdit.title} onChange={handleControlledInputChange} />
-    //     </div>
-    //   </fieldset>
-    //   <fieldset>
-    //     <div>
-    //       <input type="text" id="language" placeholder="Language" defaultValue={movieToEdit.language} onChange={handleControlledInputChange} />
-    //     </div>
-    //   </fieldset>
-    //   <fieldset>
-    //     <div>
-    //       <input type="text" id="releaseDate" placeholder="Release date" defaultValue={movieToEdit.releaseDate} onChange={handleControlledInputChange} />
-    //     </div>
-    //   </fieldset>
-    //   <fieldset>
-    //     <div>
-    //       <input type="text" id="dateWatched" placeholder="Date watched" defaultValue={movieToEdit.dateWatched} onChange={handleControlledInputChange} />
-    //     </div>
-    //   </fieldset>
-    //   <fieldset>
-    //     <div>
-    //       <input type="text" id="watchedWith" placeholder="Watched with" defaultValue={movieToEdit.watchedWith} onChange={handleControlledInputChange} />
-    //     </div>
-    //   </fieldset>
-    //   <fieldset>
-    //     <div>
-    //       <input type="text" id="review" placeholder="Review" defaultValue={movieToEdit.review} onChange={handleControlledInputChange} />
-    //     </div>
-    //   </fieldset>
-    //   <button onClick={handleClickEditMovie}>
-    //     Save Movie
-    //   </button>
-    //   <button onClick={() => history.push(`/movies/detail/${movieToEdit.id}`)}>
-    //     Cancel
-    //   </button>
-    // </form>
   )
 }
 
