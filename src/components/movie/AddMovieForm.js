@@ -37,7 +37,7 @@ export const AddMovieForm = () => {
     }
 
   return (
-    <Container>
+    <Container className="form">
       <Form className="text-center">
         <h2 className="page_title"> Add New Movie </h2>
 

@@ -37,7 +37,7 @@ export const EditMovieForm = () => {
     }
 
   return (
-    <Container>
+    <Container className="form">
       <Form className="text-center">
         <h2 className="page_title"> Edit Movie </h2>
 
