@@ -20,7 +20,7 @@ Open a terminal window and go to the `movie-logger` directory.
 1. `cd api`
 2. `json-server -p 8088 database.json`
 
-### `npm start`
+### npm start
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
