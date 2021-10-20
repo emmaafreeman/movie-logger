@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react"
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { MovieContext } from "./MovieProvider.js"
 import "./Movie.css"
 import Container from "react-bootstrap/Container";

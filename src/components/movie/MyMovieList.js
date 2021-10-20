@@ -1,12 +1,11 @@
-import React, { useState, useContext, useEffect } from "react"
+import React, { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { MovieContext } from "./MovieProvider"
 import "./Movie.css"
-// import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min"
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 
-export const MyMovieList = () => {
+export const MyMovieList = (props) => {
   const { getMyMovies, myMovies } = useContext(MovieContext)
 
   useEffect(() => {
